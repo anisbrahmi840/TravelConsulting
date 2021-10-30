@@ -1,19 +1,95 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
-</html>
+		<meta name="description" content="Citytours - Premium site template for city tours agencies, transfers and tickets.">
+		<meta name="author" content="Ansonika">
+		<title>Me</title>
+
+		<!-- Favicons-->
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" type="image/x-icon" href="img/apple-touch-icon-57x57-precomposed.png">
+		<link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png">
+		<link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png">
+		<link
+		rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png">
+
+		<!-- GOOGLE WEB FONT -->
+		<link
+		href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,700" rel="stylesheet">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- COMMON CSS -->
+		<link href="{{ asset('css/bootstrap.min.css') }} " rel="stylesheet">
+		<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+		<link
+		href="{{ asset('css/vendors.css') }}" rel="stylesheet">
+
+		<!-- CUSTOM CSS -->
+		<link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
+	</head>
+	<body>
+
+		<div id="preloader">
+			<div class="sk-spinner sk-spinner-wave">
+				<div class="sk-rect1"></div>
+				<div class="sk-rect2"></div>
+				<div class="sk-rect3"></div>
+				<div class="sk-rect4"></div>
+				<div class="sk-rect5"></div>
+			</div>
+		</div>
+		<!-- End Preload -->
+
+		<div class="layer"></div>
+		<!-- Mobile menu overlay mask -->
+
+		<!-- Header================================================== -->
+		<header id="plain" style="border-bottom:1px solid #ddd;">
+
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-3">
+						<div id="logo_home">
+							<h1>
+								<a href="index.html" title="City tours travel template">City Tours travel template</a>
+							</h1>
+						</div>
+					</div>
+					<nav class="col-9">
+						<ul id="top_tools">
+							<li>
+								<a href="#" class="btn_map text-white">se connecter</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<!-- container -->
+		</header>
+		<!-- End Header -->
+
+		<main class="margin_60"> {% block body %}{% endblock %}
+			</main>
+			<!-- End main -->
+
+
+			<div id="toTop"></div>
+			<!-- Back to top button -->
+
+			<!-- Common scripts -->
+			<script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
+			<script src="{{ asset('js/common_scripts_min.js') }}"></script>
+			<script src="{{ asset('js/functions.js') }}"></script>
+
+			<!-- Check box and radio style iCheck -->
+			<script>
+				$('input').iCheck({checkboxClass: 'icheckbox_square-grey', radioClass: 'iradio_square-grey'});
+			</script>
+
+		</body>
+	</html>

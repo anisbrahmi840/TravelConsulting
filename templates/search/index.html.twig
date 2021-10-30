@@ -1,0 +1,173 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SearchController!
+{% endblock %}
+
+{% block body %}
+	<div class="container margin_60">
+
+		<div class="row justify-content-center">
+
+			<div class="col-lg-10">
+
+				<div id="tools" class="bg-danger rounded">
+					<div class="tab-pane p-2 text-white border border-white " id="hotels">
+						<h2 class="text-center">
+							<strong class="text-white text-center">Hotels Tunisie</strong>
+						</h2>
+						<hr class="text-white bg-white border-white">
+						<div class="row justify-content-center">
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>
+										<i class="icon-calendar-7"></i>
+										Destination
+									</label>
+									<input class="date-pick form-control" placeholder="Indiquer votre destination" type="text">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>
+										<i class="icon-calendar-7"></i>
+										Check in</label>
+									<input class="date-pick form-control" type="text">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="form-group">
+									<label>
+										<i class="icon-calendar-7"></i>
+										Check out</label>
+									<input class="date-pick form-control" type="text">
+								</div>
+							</div>
+						</div>
+						<div class="row justify-content-center">
+							<div class="col-md-2 col-sm-3 col-6">
+								<div class="form-group">
+									<label>Adults</label>
+									<div class="numbers-row">
+										<input type="text" value="1" id="adults" class="qty2 form-control" name="adults_2">
+									</div>
+								</div>
+							</div>
+							<div class="col-md-2 col-sm-3 col-6">
+								<div class="form-group">
+									<label>Children</label>
+									<div class="numbers-row">
+										<input type="text" value="0" id="children" class="qty2 form-control" name="children_2">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row justify-content-center mb-2">
+							<div class="col-md-4 col-sm-6">
+								<a href="#" class="btn_map border border-white rounded">
+									<strong class="text-white ">Rechercher</strong>
+								</a>
+							</div>
+						</div>
+					</div>
+					<!--End tools -->
+
+					{% for hotel in hotels %}
+						<div class="strip_all_tour_list wow fadeIn" data-wow-delay="0.1s">
+							<div class="row">
+								<div class="col-lg-4 col-md-4">
+									<div class="img_list">
+										<a href="single_hotel.html"><img src="{{hotel.image}}" alt="Image">
+											<div class="short_info"></div>
+										</a>
+									</div>
+								</div>
+								<div class="col-lg-5 col-md-5">
+									<div class="tour_list_desc">
+										<div class="score">score<span>5</span>
+										</div>
+										<div class="rating">
+											{% for i in 1..hotel.rating %}
+												<i class="icon-star voted"></i>
+											{% endfor %}
+										</div>
+										<h3>
+											<strong>{{hotel.name}}</strong>
+										</h3>
+										<p>
+											<i class="fa fa-map-marker" aria-hidden="true"></i>
+											{{hotel.address}},
+											<strong>{{hotel.city}}</strong>
+										</p>
+										<p>{{hotel.description}}</p>
+
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 p-1">
+									<div class="price_list text-center">
+										<div class="text-center">
+											<div style="background-color: #CCE5B0;" class="rounded shadow p-1">
+												<img src="{{hotel.hotelsPrice.0.logo}}" alt=""><small class="text-dark">{{hotel.hotelsPrice.0.agence}}</small>
+												<small>A partir de</small>
+												<strong class="text-success">{{hotel.hotelsPrice.0.minRate}}</strong>
+												<small class="mt-2">TND</small>
+
+											</div>
+											<hr>
+											{% for agence in hotel.hotelsPrice %}
+												<div class="row justify-content-center">
+													<div class="col-10 ">
+														{% if loop.index0 %}
+															<div class="shadow rounded shadow">
+																<img src="{{agence.logo}}" alt=""><small class="text-dark">{{agence.agence}}</small>
+																<small><strong>{{agence.minRate}}</strong>
+																	TND</small>
+															</div>
+														{% endif %}
+													</div>
+												</div>
+											{% endfor %}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+					<!--End strip -->
+
+					<hr>
+
+					<nav aria-label="Page navigation">
+						<ul class="pagination justify-content-center">
+							<li class="page-item">
+								<a class="page-link" href="#" aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+									<span class="sr-only">Previous</span>
+								</a>
+							</li>
+							<li class="page-item active">
+								<span class="page-link">1<span class="sr-only">(current)</span>
+								</span>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">2</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#">3</a>
+							</li>
+							<li class="page-item">
+								<a class="page-link" href="#" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+									<span class="sr-only">Next</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+					<!-- end pagination-->
+
+				</div>
+				<!-- End col lg-9 -->
+			</div>
+			<!-- End row -->
+		</div>
+	</div>
+{% endblock %}
